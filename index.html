@@ -1,129 +1,23 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Modern | Landing Page</title>
-    <style>
-        /* CSS Styling */
-        :root {
-            --primary: #2563eb;
-            --secondary: #ffffff;
-            --dark: #1e293b;
-            --light: #f8fafc;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; font-family: 'Segoe UI', sans-serif; }
-
-        body { background-color: var(--light); color: var(--dark); animation: fadeIn 1s ease-in; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Navbar */
-        nav { position: fixed; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; transition: 0.4s; z-index: 1000; }
-        nav.scrolled { background: var(--primary); padding: 10px 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        nav h2 { color: white; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-
-        /* Hero */
-        .hero { height: 100vh; background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(37, 99, 235, 0.8)), url('https://picsum.photos/1600/900'); background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-        .btn { padding: 12px 30px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; margin: 5px; }
-        .btn-light { background: white; color: var(--primary); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-        /* Section Global */
-        section { padding: 80px 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        
-        /* Kartu Produk */
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; }
-        .card:hover { transform: scale(1.03); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
-
-        /* Form */
-        form input, form textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
-        
-        footer { text-align: center; padding: 20px; background: var(--dark); color: white; }
-
-        @media (max-width: 768px) { nav { padding: 20px; } .hero h1 { font-size: 2rem; } }
-    </style>
-</head>
-<body>
-
-    <nav id="navbar">
-        <h2>TokoKita</h2>
-        <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#produk">Produk</a></li>
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hero">
-        <h1>Selamat Datang di Toko Kami</h1>
-        <p>Kami menyediakan produk berkualitas tinggi untuk kebutuhan Anda.</p>
-        <div style="margin-top: 20px;">
-            <button class="btn btn-light" onclick="document.getElementById('produk').scrollIntoView()">Lihat Produk</button>
-            <button class="btn" style="border: 2px solid white; color: white;" onclick="document.getElementById('kontak').scrollIntoView()">Hubungi Kami</button>
-        </div>
-    </section>
-
-    <section id="produk">
-        <h2 style="text-align: center; margin-bottom: 40px;">Produk Unggulan</h2>
-        <div class="grid">
-            <script>
-                for(let i=1; i<=6; i++) {
-                    document.write(`
-                        <div class="card">
-                            <img src="https://picsum.photos/300/200?random=${i}" alt="Produk">
-                            <h3>Produk ${i}</h3>
-                            <p>Deskripsi singkat mengenai produk berkualitas ini.</p>
-                            <p style="color: var(--primary); font-weight: bold; margin: 10px 0;">Rp 100.000</p>
-                            <button class="btn btn-light" style="background: var(--primary); color: white;">Beli Sekarang</button>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
-    </section>
-
-    <section id="tentang" style="background: white;">
-        <h2>Tentang Kami</h2>
-        <p>Kami adalah toko yang berdedikasi memberikan pengalaman belanja terbaik dengan produk pilihan yang terjamin kualitasnya.</p>
-    </section>
-
-    <section id="kontak">
-        <h2>Kontak Kami</h2>
-        <form>
-            <input type="text" placeholder="Nama Anda" required>
-            <input type="email" placeholder="Email Anda" required>
-            <textarea placeholder="Pesan" rows="5"></textarea>
-            <button type="submit" class="btn btn-light" style="background: var(--primary); color: white; width: 100%;">Kirim</button>
-        </form>
-        <div style="margin-top: 30px;">
-            <p>WhatsApp: +62 877-5683-5898</p>
-            <p>Email: info@tokokita.com</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 TokoKita. Semua hak dilindungi.</p>
-    </footer>
-
-    <script>
-        // Transparansi Navbar saat scroll
-        window.onscroll = function() {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        };
-    </script>
-</body>
-</html>
-  Hadi
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toko Modern</title>
+<style>
+:root{--p:#2563eb;--d:#1e293b;--l:#f8fafc}*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;scroll-behavior:smooth}
+body{background:var(--l);color:var(--d)}nav{position:sticky;top:0;background:var(--p);display:flex;justify-content:space-between;padding:15px 30px;color:#fff}nav a{color:#fff;text-decoration:none;margin-left:16px}
+.hero{height:70vh;background:linear-gradient(rgba(37,99,235,.8),rgba(37,99,235,.8)),url('https://picsum.photos/1600/900');background-size:cover;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;padding:20px}
+.btn{background:#fff;color:var(--p);padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:bold}
+section{padding:60px 20px;max-width:1100px;margin:auto}.title{text-align:center;margin-bottom:30px;color:var(--p)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#fff;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.1);overflow:hidden}.card img{width:100%;height:180px;object-fit:cover}.card div{padding:15px}.price{color:var(--p);font-weight:bold;margin:10px 0}button{width:100%;padding:10px;background:var(--p);color:#fff;border:none;border-radius:8px}
+form{max-width:600px;margin:auto}input,textarea{width:100%;padding:10px;margin:10px 0}footer{background:var(--d);color:#fff;text-align:center;padding:20px;margin-top:40px}
+</style></head><body>
+<nav><h2>TokoKita</h2><div><a href="#home">Beranda</a><a href="#produk">Produk</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a></div></nav>
+<section id="home" class="hero"><h1>Selamat Datang di Toko Kami</h1><p>Produk berkualitas dengan harga terbaik.</p><br><a class="btn" href="#produk">Lihat Produk</a></section>
+<section id="produk"><h2 class="title">Produk</h2><div class="grid">
+<div class="card"><img src="12019-ama-dablam-2064522_1920.jpg"><div><h3>Tiket Gunung A</h3><p class="price">Rp150.000</p><button>Beli</button></div></div>
+<div class="card"><img src="flutie8211-waterfall-9466632_1920.jpg"><div><h3>Tiket Gunung B</h3><p class="price">Rp175.000</p><button>Beli</button></div></div>
+<div class="card"><img src="yoshitaka2-mountains-8026175_1920.jpg"><div><h3>Paket Air Terjun</h3><p class="price">Rp200.000</p><button>Beli</button></div></div>
+</div></section>
+<section id="tentang"><h2 class="title">Tentang Kami</h2><p>Kami menyediakan tiket wisata alam dan pendakian dengan pelayanan terbaik.</p></section>
+<section id="kontak"><h2 class="title">Kontak</h2><form><input placeholder="Nama"><input type="email" placeholder="Email"><textarea placeholder="Pesan"></textarea><button>Kirim</button></form></section>
+<footer>&copy;2026 TokoKita</footer></body></html>
